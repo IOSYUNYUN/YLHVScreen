@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "YLSupportViewController.h"
+#import "YLNotSupportViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,13 +18,66 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UITabBarController* tabBar = [[UITabBarController alloc] init];
+    //支持横屏的viewcontroller
+    YLSupportViewController* supportViewController = [[YLSupportViewController alloc] init];
+    supportViewController.tabBarItem.title = @"支持横屏";
+    //不支持横屏的viewcontroller
+    YLNotSupportViewController* notsupportViewControllrt = [[YLNotSupportViewController alloc] init];
+    notsupportViewControllrt.tabBarItem.title = @"不支持横屏";
+    tabBar.viewControllers = @[supportViewController,notsupportViewControllrt];
+    self.window.rootViewController = tabBar;
+    [self.window makeKeyAndVisible];
     return YES;
 }
+//每次调用viewcontroller时都要调用这个函数来判断是否支持横屏
+-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    
+    
+    //获取当前
+    UIViewController* currentViewController = [self topViewController];
+    NSString* str_name = NSStringFromClass([currentViewController class]);
+    NSLog(@"%@",str_name);
+   id th =  [UIApplication sharedApplication].windows.lastObject;
+    NSLog(@"%@",NSStringFromClass([th class]));
+    //str_name 是不让炫转的类名
+    if([str_name  isEqual: @"YLNotSupportViewController"])
+    {
+        //返回为不支持旋转
+         return UIInterfaceOrientationMaskPortrait;
+    }
+     //支持UpsideDown意外的所有的旋转
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 
+   
+}
+//找到当前keyWindow的rootVC
+- (UIViewController*)topViewController
+{
+    return [self topViewControllerWithRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+//通过rootVC找到当前相应的VC
+- (UIViewController*)topViewControllerWithRootViewController:(UIViewController*)rootViewController
+{
+    //
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController* tabBarController = (UITabBarController*)rootViewController;
+        return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];
+    }
+    else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController* navigationController = (UINavigationController*)rootViewController;
+        return [self topViewControllerWithRootViewController:navigationController.visibleViewController];
+    }
+    else if (rootViewController.presentedViewController) {
+        UIViewController* presentedViewController = rootViewController.presentedViewController;
+        return [self topViewControllerWithRootViewController:presentedViewController];
+    }
+    else {
+        return rootViewController;
+    }
 }
 
 

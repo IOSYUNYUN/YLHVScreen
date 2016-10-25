@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DA2C9C81DBF4095009CFF4D /* YLSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA2C9C71DBF4095009CFF4D /* YLSupportViewController.m */; };
+		0DA2C9CB1DBF40B5009CFF4D /* YLNotSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA2C9CA1DBF40B5009CFF4D /* YLNotSupportViewController.m */; };
 		0DC7F0011DBF3BFD00116F66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7F0001DBF3BFD00116F66 /* main.m */; };
 		0DC7F0041DBF3BFD00116F66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7F0031DBF3BFD00116F66 /* AppDelegate.m */; };
 		0DC7F00C1DBF3BFD00116F66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DC7F00B1DBF3BFD00116F66 /* Assets.xcassets */; };
@@ -32,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DA2C9C61DBF4095009CFF4D /* YLSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLSupportViewController.h; sourceTree = "<group>"; };
+		0DA2C9C71DBF4095009CFF4D /* YLSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLSupportViewController.m; sourceTree = "<group>"; };
+		0DA2C9C91DBF40B5009CFF4D /* YLNotSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLNotSupportViewController.h; sourceTree = "<group>"; };
+		0DA2C9CA1DBF40B5009CFF4D /* YLNotSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLNotSupportViewController.m; sourceTree = "<group>"; };
 		0DC7EFFC1DBF3BFD00116F66 /* YLHVScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLHVScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC7F0001DBF3BFD00116F66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DC7F0021DBF3BFD00116F66 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DA2C9C51DBF4039009CFF4D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0DA2C9C61DBF4095009CFF4D /* YLSupportViewController.h */,
+				0DA2C9C71DBF4095009CFF4D /* YLSupportViewController.m */,
+				0DA2C9C91DBF40B5009CFF4D /* YLNotSupportViewController.h */,
+				0DA2C9CA1DBF40B5009CFF4D /* YLNotSupportViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		0DC7EFF31DBF3BFD00116F66 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +111,7 @@
 		0DC7EFFE1DBF3BFD00116F66 /* YLHVScreen */ = {
 			isa = PBXGroup;
 			children = (
+				0DA2C9C51DBF4039009CFF4D /* ViewControllers */,
 				0DC7F0021DBF3BFD00116F66 /* AppDelegate.h */,
 				0DC7F0031DBF3BFD00116F66 /* AppDelegate.m */,
 				0DC7F00B1DBF3BFD00116F66 /* Assets.xcassets */,
@@ -260,6 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DA2C9C81DBF4095009CFF4D /* YLSupportViewController.m in Sources */,
+				0DA2C9CB1DBF40B5009CFF4D /* YLNotSupportViewController.m in Sources */,
 				0DC7F0041DBF3BFD00116F66 /* AppDelegate.m in Sources */,
 				0DC7F0011DBF3BFD00116F66 /* main.m in Sources */,
 			);
@@ -474,6 +494,7 @@
 				0DC7F02B1DBF3BFD00116F66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0DC7F02C1DBF3BFD00116F66 /* Build configuration list for PBXNativeTarget "YLHVScreenTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +503,7 @@
 				0DC7F02E1DBF3BFD00116F66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0DC7F02F1DBF3BFD00116F66 /* Build configuration list for PBXNativeTarget "YLHVScreenUITests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +512,7 @@
 				0DC7F0311DBF3BFD00116F66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
